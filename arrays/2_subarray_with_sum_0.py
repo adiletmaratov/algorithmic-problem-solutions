@@ -20,4 +20,20 @@ def naive_solution(arr):
     return result
 
 
-print(naive_solution([3, 4, -7, 3, 1, 3, 1, -4, 2, 2]))
+def linear_time_solution(arr):
+    result = []
+    sum_counter = 0
+    sums_dict = {}
+    for i in range(len(arr)):
+        sum_counter += arr[i]
+        if sums_dict.get(sum_counter):
+            for j in sums_dict[sum_counter]:
+                result.append(arr[j+1:i+1])
+            sums_dict[sum_counter].append(i)
+        else:
+            sums_dict[sum_counter] = [i]
+    return result
+
+
+print(linear_time_solution([3, 4, -7, 3, 1, 3, 1, -4, -2, -2]))
+print(linear_time_solution([4, 2, -3, -1, 0, 4]))
