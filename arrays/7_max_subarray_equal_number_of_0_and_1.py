@@ -1,15 +1,15 @@
 def linear_solution(A):
-    results = [0, -1]
+    results = [0, 0]
     sum_counter = 0
     A = [1 if x else -1 for x in A]
-    sums = {0: 0}
+    sums = {0: -1}
     for counter, value in enumerate(A):
         sum_counter += value
         if sum_counter not in sums:
             sums[sum_counter] = counter
         else:
             if results[1]-results[0] < counter - sums[sum_counter]:
-                results[0] = sums[sum_counter]
+                results[0] = sums[sum_counter]+1
                 results[1] = counter+1
     return [1 if x > 0 else 0 for x in A[results[0]:results[1]]]
 
@@ -31,7 +31,7 @@ def naive_solution(A):
 
 # print(linear_solution([0, 1, 0]))
 import random
-n = 3
+n = 100
 for _ in range(1000):
     A = [random.randint(0, 1) for __ in range(n)]
     naive = naive_solution(A)
