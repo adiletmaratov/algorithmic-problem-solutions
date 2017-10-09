@@ -1,3 +1,6 @@
+# Problem: http://www.techiedelight.com/find-maximum-length-sub-array-equal-number-0s-1s/
+
+
 def linear_solution(A):
     results = [0, 0]
     sum_counter = 0

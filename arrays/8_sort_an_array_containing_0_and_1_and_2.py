@@ -1,3 +1,6 @@
+# Problem: http://www.techiedelight.com/sort-array-containing-0s-1s-2s-dutch-national-flag-problem/
+
+
 def linear_solution(A):
     i, j, r, p = 0, 0, len(A) - 1, 1
     while r >= j:
