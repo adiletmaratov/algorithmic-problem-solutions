@@ -1,14 +1,19 @@
+import random
+
+
 def insertion_sort(A):
     if A is None:
         return
-    for i in range(1, len(A)):
-        current_value = A[i]
+    for i in range(len(A)):
+        value = A[i]
         position = i
-        while position > 0 and A[position-1] > current_value:
+        while position > 0 and A[position-1] > value:
             A[position] = A[position-1]
             position -= 1
-        A[position] = current_value
+        A[position] = value
     return A
 
 
-print(insertion_sort([4, 3, 9, 10, 4, 1, 5]))
+for i in range(1000):
+    A = [random.randint(0, 1000) for __ in range(100)]
+    assert sorted(A) == insertion_sort(A)
